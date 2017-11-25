@@ -1,0 +1,15 @@
+.root {
+	-fx-background: rgb(255, 255, 255);
+	-fx-font-family: "Verdana";
+}
+
+.text-field {
+	-fx-background-color: #f2f2f2;
+	-fx-effect: dropshadow( gaussian, #cccccc, 1,2,1,1 );
+}
+
+.text-field:focused {
+	-fx-background-color: #f2f2f2;
+	-fx-border-color: #cccccc;
+	-fx-effect: dropshadow( gaussian, #cccccc, 1,2,1,1 );
+}

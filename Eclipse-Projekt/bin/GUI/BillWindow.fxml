@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" minHeight="800.0" minWidth="600.0" prefHeight="850.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Datei">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Neuer Befundschein">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="N" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Befundschein Öffnen">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="O" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Speichern unter">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            <MenuItem mnemonicParsing="false" text="Als PDF speichern">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="P" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Schließen">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="Q" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Bearbeiten" />
+        <Menu mnemonicParsing="false" text="Hilfe">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Dokumentation anzeigen" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <TabPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Seite 1">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="789.0" prefWidth="800.0">
+                           <children>
+                              <TextField fx:id="findingsBillNumber" layoutX="635.0" layoutY="59.0" prefHeight="27.0" prefWidth="115.0" />
+                              <Label layoutX="41.0" layoutY="35.0" text="Befundschein">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="165.0" layoutY="34.0" prefHeight="29.0" prefWidth="291.0" text="über die Prüfung elektrischer Anlagen gemäß Vorgaben">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="41.0" layoutY="59.0" text="der Sachversicherer nach den Prüfrichtlinien VdS 2871 durch VdS-anerkannte Sachverständige">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="635.0" layoutY="38.0" text="Befundschein-Nr.:" />
+                              <Label layoutX="46.0" layoutY="277.0" text="Arte des Betriebes oder der Anlage:">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="529.0" layoutY="279.0" text="Ja" />
+                              <Label layoutX="664.0" layoutY="279.0" text="Nein" />
+                              <Label layoutX="44.0" layoutY="102.0" text="Versicherungsnehmer (VN)" />
+                              <Label layoutX="460.0" layoutY="102.0" text="Risikoanschrift" />
+                              <Separator layoutX="28.0" layoutY="256.0" prefHeight="3.0" prefWidth="749.0" />
+                              <TextField fx:id="typeOfBusinessZone" layoutX="327.0" layoutY="274.0" prefHeight="27.0" prefWidth="47.0" />
+                              <CheckBox fx:id="typeOfBusinessFrequenzyControlledYes" layoutX="525.0" layoutY="326.0" mnemonicParsing="false" onAction="#typeOfBusinessFrequenzyControlledYesClicked" />
+                              <CheckBox fx:id="typeOfBusinessFrequenzyControlledNo" layoutX="666.0" layoutY="326.0" mnemonicParsing="false" onAction="#typeOfBusinessFrequenzyControlledNoClicked" />
+                              <CheckBox fx:id="typeOfBusinessProtectiveActionYes" layoutX="525.0" layoutY="386.0" mnemonicParsing="false" onAction="#typeOfBusinessProtectiveActionYesClicked" />
+                              <CheckBox fx:id="typeOfBusinessProtectiveActionNo" layoutX="666.0" layoutY="385.0" mnemonicParsing="false" onAction="#typeOfBusinessProtectiveActionNoClicked" />
+                              <Label layoutX="48.0" layoutY="434.0" text="Wenn ja, welche:" />
+                              <TextField fx:id="typeOfBusinessProtectiveActionYesText" layoutX="165.0" layoutY="429.0" prefHeight="27.0" prefWidth="235.0" />
+                              <CheckBox fx:id="typeOfBusinessAllZonesCheckedYes" layoutX="231.0" layoutY="485.0" mnemonicParsing="false" onAction="#typeOfBusinessAllZonesCheckedYesClicked" text="Ja" />
+                              <CheckBox fx:id="typeOfBusinessAllZonesCheckedNo" layoutX="306.0" layoutY="485.0" mnemonicParsing="false" onAction="#typeOfBusinessAllZonesCheckedNoClicked" text="Nein – Nachbesichtigung (&lt; 6 Wo) vereinbart bis zum:" />
+                              <Label layoutX="694.0" layoutY="464.0" text="Datum">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="45.0" layoutY="540.0" text="Begründung für nicht geprüfte Bereiche:" />
+                              <TextArea fx:id="typeOfBusinessAllZonesReasonUnchecked" layoutX="300.0" layoutY="540.0" prefHeight="69.0" prefWidth="481.0" wrapText="true" />
+                              <CheckBox fx:id="typeOfBusinessRenewalFirst" layoutX="438.0" layoutY="642.0" mnemonicParsing="false" onAction="#typeOfBusinessRenewalFirstClicked" text="Erstprüfung" />
+                              <CheckBox fx:id="typeOfBusinessRenewalYes" layoutX="558.0" layoutY="642.0" mnemonicParsing="false" onAction="#typeOfBusinessRenewalYesClicked" text="Ja" />
+                              <CheckBox fx:id="typeOfBusinessRenewalNo" layoutX="638.0" layoutY="642.0" mnemonicParsing="false" onAction="#typeOfBusinessRenewalNoClicked" text="Nein" />
+                              <Label layoutX="44.0" layoutY="710.0" text="Wurden alle Mängel der vorhergehenden Revision beseitigt?" />
+                              <CheckBox fx:id="typeOfBusinessFaultRemovedMissing" layoutX="438.0" layoutY="710.0" mnemonicParsing="false" onAction="#typeOfBusinessFaultRemovedMissingClicked" text="Bericht fehlt" />
+                              <CheckBox fx:id="typeOfBusinessFaultRemovedYes" layoutX="560.0" layoutY="710.0" mnemonicParsing="false" onAction="#typeOfBusinessFaultRemovedYesClicked" text="ja" />
+                              <CheckBox fx:id="typeOfBusinessFaultRemovedNo" layoutX="640.0" layoutY="710.0" mnemonicParsing="false" onAction="#typeOfBusinessFaultRemovedNoClicked" text="Nein" />
+                              <Label layoutX="46.0" layoutY="309.0" prefHeight="48.0" prefWidth="354.0" text="Sind frequenzgesteuerte Betriebsmittel (z. B. Motore) in der elektrischen Anlage installiert?" wrapText="true" />
+                              <Label layoutX="48.0" layoutY="368.0" prefHeight="42.0" prefWidth="343.0" text="Sind Bereiche, die besondere Schutzmaßnahmen erfordern, durch den Betreiber ausgewiesen?" wrapText="true" />
+                              <Label layoutX="48.0" layoutY="477.0" prefHeight="39.0" prefWidth="163.0" text="Wurden alle Bereiche des Risikostandorts geprüft?" textAlignment="JUSTIFY" wrapText="true" />
+                              <Label layoutX="44.0" layoutY="623.0" prefHeight="56.0" prefWidth="323.0" text="Wurden nach Aussagen des Betreibers Teilbereiche der Anlage seit der letzten Revision erneuert, erweitert oder umgebaut (entfällt bei Erstprüfung)?" textAlignment="JUSTIFY" wrapText="true" />
+                              <DatePicker fx:id="typeOfBusinessAllZonesCheckedDate" layoutX="668.0" layoutY="481.0" prefHeight="27.0" prefWidth="114.0" />
+                              <Label layoutX="334.0" layoutY="395.0" />
+                              <Button layoutX="221.0" layoutY="97.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="30.0" text="+" />
+                              <Label fx:id="policyholderName" layoutX="58.0" layoutY="138.0" prefHeight="17.0" prefWidth="238.0" text="Placeholder" />
+                              <Label fx:id="policyholderStreet" layoutX="58.0" layoutY="164.0" prefHeight="38.0" prefWidth="238.0" text="Placeholder" wrapText="true" />
+                              <Label fx:id="policyholderZIPCity" layoutX="58.0" layoutY="215.0" prefHeight="17.0" prefWidth="238.0" text="Placeholder" />
+                              <Button layoutX="265.0" layoutY="97.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="30.0" text="-" />
+                              <Button fx:id="addRiskAdressButton" layoutX="566.0" layoutY="97.0" mnemonicParsing="false" onAction="#addRiskAdress" prefHeight="27.0" prefWidth="31.0" text="+" />
+                              <Button fx:id="changeRiskAdressButton" layoutX="611.0" layoutY="97.0" mnemonicParsing="false" onAction="#changeRiskAdress" prefHeight="27.0" prefWidth="30.0" text="-" />
+                              <Label layoutX="471.0" layoutY="128.0" text="Straße/Nr">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Label>
+                              <Label layoutX="471.0" layoutY="145.0" text="PLZ/Ort">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font></Label>
+                              <Label layoutX="470.0" layoutY="175.0" text="Begleiter vom VN:">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="470.0" layoutY="191.0" text="Sachverständiger:">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="470.0" layoutY="207.0" text="VdS-Anerk.-Nr.:">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="470.0" layoutY="223.0" text="Datum der Prüfung:">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="469.0" layoutY="239.0" text="Prüfungsdauer:">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="594.0" layoutY="175.0" text="Placeholder Begleiter">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="594.0" layoutY="191.0" text="Placeholder Sachv.">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="594.0" layoutY="207.0" text="Placeholder VdS">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="595.0" layoutY="223.0" text="Placeholder Datum">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="594.0" layoutY="238.0" text="Placeholder Dauer">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="billRiskAdressStreet" layoutX="594.0" layoutY="127.0" text="Placeholder Str">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="594.0" layoutY="144.0" text="Placeholder PLZ">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Seite 1 - Teil 2">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="38.0" layoutY="41.0" text="Gesamtbeurteilung der Anlage">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="38.0" layoutY="78.0" text="Gefährdungskategorie gemäß Prüfrichtlinien VdS 2871" />
+                              <CheckBox fx:id="evaluationResultsHazardCategoryA" layoutX="394.0" layoutY="78.0" mnemonicParsing="false" onAction="#evaluationResultsHazardCategoryAClicked" text="(a)" />
+                              <CheckBox fx:id="evaluationResultsHazardCategoryB" layoutX="466.0" layoutY="78.0" mnemonicParsing="false" onAction="#evaluationResultsHazardCategoryBClicked" text="(b)" />
+                              <CheckBox fx:id="evaluationResultsHazardCategoryC" layoutX="540.0" layoutY="78.0" mnemonicParsing="false" onAction="#evaluationResultsHazardCategoryCClicked" text="(c)" />
+                              <CheckBox fx:id="evaluationResultsHazardCategoryD" layoutX="610.0" layoutY="78.0" mnemonicParsing="false" onAction="#evaluationResultsHazardCategoryDClicked" text="(d)" />
+                              <Label layoutX="38.0" layoutY="118.0" text="Ergänzende Erläuterungen:" />
+                              <TextArea fx:id="evaluationResultsNotes" layoutX="38.0" layoutY="146.0" prefHeight="79.0" prefWidth="485.0" wrapText="true" />
+                              <Label layoutX="38.0" layoutY="300.0" text="Prüfungsergebnis">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="178.0" layoutY="302.0" text="(Einzelergebnisse)" />
+                              <CheckBox fx:id="evaluationResultsNoFaults" layoutX="38.0" layoutY="337.0" mnemonicParsing="false" onAction="#evaluationResultsNoFaultsClicked" text="Keinen Mangel festgestellt" />
+                              <CheckBox fx:id="evaluationResultsFaults" layoutX="38.0" layoutY="378.0" mnemonicParsing="false" onAction="#evaluationResultsFaultsClicked" text="Die festgestellten Mängel sind im Anhang A aufgeführt und spätestens zu beseitigen bis: " />
+                              <CheckBox fx:id="evaluationResultsFaultsFireHazard" layoutX="38.0" layoutY="424.0" mnemonicParsing="false" onAction="#evaluationResultsFaultsFireHazardClicked" />
+                              <Separator layoutX="22.0" layoutY="252.0" prefHeight="3.0" prefWidth="755.0" />
+                              <Label layoutX="62.0" layoutY="424.0" prefHeight="85.0" prefWidth="544.0" text="Es wurden Mängel festgestellt, die eine Brandgefahr (mit „X“ gekennzeichnet) bzw. eine Unfallgefahr (mit „O“ gekennzeichnet) hervorrufen können. Diese Mängel sind unverzüglich zu beseitigen! (Der Mangel ist dann mit einem X oder O zu kennzeichnen, wenn er im Extremfall, aber bei sonst normalen Betriebsbedingungen zu einem Brand bzw. zu einem Personenschaden führen kann.)" textAlignment="JUSTIFY" wrapText="true" />
+                              <Label layoutX="647.0" layoutY="357.0" text="Datum">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="evaluationResultsPageNumber" layoutX="268.0" layoutY="594.0" prefHeight="27.0" prefWidth="97.0" />
+                              <Label layoutX="383.0" layoutY="599.0" text="Anzahl Seiten" />
+                              <DatePicker fx:id="evaluationResultsFaultsDate" layoutX="625.0" layoutY="374.0" prefHeight="27.0" prefWidth="114.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Seite 2">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="22.0" text="Messungen">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="14.0" layoutY="59.0" text="•Isolationswiderstand:">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="166.0" layoutY="60.0" text="Messungen in mind. 50% aller Stromkreise" />
+                              <CheckBox fx:id="measurementAreaResourcesInsulatingResistenceYes" layoutX="544.0" layoutY="59.0" mnemonicParsing="false" onAction="#measurementAreaResourcesInsulatingResistenceYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesInsulatingResistenceNo" layoutX="653.0" layoutY="60.0" mnemonicParsing="false" onAction="#measurementAreaResourcesInsulatingResistenceNoClicked" text="Nein" />
+                              <Label layoutX="32.0" layoutY="89.0" prefHeight="40.0" prefWidth="440.0" text="Wenn Isolationswiderstandsmessungen nicht möglich sind: Lagen ersatzweise Messprotokolle über Isolationswiderstandsmessungen vor?" textAlignment="JUSTIFY" wrapText="true" />
+                              <CheckBox fx:id="measurementAreaResourcesReplacementTestRecordYes" layoutX="544.0" layoutY="100.0" mnemonicParsing="false" onAction="#measurementAreaResourcesReplacementTestRecordYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesReplacementTestRecordNo" layoutX="653.0" layoutY="100.0" mnemonicParsing="false" onAction="#measurementAreaResourcesReplacementTestRecordNoClicked" text="Nein" />
+                              <CheckBox fx:id="measurementAreaResourcesContingencyMeasuresYes" layoutX="544.0" layoutY="150.0" mnemonicParsing="false" onAction="#measurementAreaResourcesContingencyMeasuresYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesContingencyMeasuresNo" layoutX="653.0" layoutY="150.0" mnemonicParsing="false" onAction="#measurementAreaResourcesContingencyMeasuresNoClicked" text="Nein" />
+                              <Label layoutX="32.0" layoutY="141.0" prefHeight="36.0" prefWidth="442.0" text="Wenn nein: Sind Ersatzmaßnahmen nach Aussage des Betreibers vorhanden?" wrapText="true" />
+                              <Label layoutX="32.0" layoutY="191.0" text="Bemerkung hierzu:" />
+                              <TextArea fx:id="measurementAreaResourcesContingencyMeasuresComment" layoutX="153.0" layoutY="191.0" prefHeight="47.0" prefWidth="556.0" wrapText="true" />
+                              <Separator layoutX="14.0" layoutY="270.0" prefHeight="4.0" prefWidth="774.0" />
+                              <Label layoutX="15.0" layoutY="283.0" text="•Fehlerstrom-Schutzeinrichtungen (RCDs)">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="measurementAreaResourcesLeakageCurrentAll" layoutX="358.0" layoutY="283.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLeakageCurrentAllClicked" text="alle oder" />
+                              <CheckBox fx:id="measurementAreaResourcesLeakageCurrentNo" layoutX="593.0" layoutY="283.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLeakageCurrentNoClicked" text="Nein" />
+                              <TextField fx:id="measurementAreaResourcesLeakageCurrentPercent" layoutX="443.0" layoutY="279.0" onDragDetected="#measurementAreaResourcesLeakageCurrentPercentClicked" prefHeight="27.0" prefWidth="62.0" />
+                              <Label layoutX="511.0" layoutY="284.0" text="\%" />
+                              <Label layoutX="32.0" layoutY="315.0" text="Bemerkung hierzu:" />
+                              <TextArea fx:id="measurementAreaResourcesLeakageCurrentComment" layoutX="153.0" layoutY="315.0" prefHeight="47.0" prefWidth="556.0" wrapText="true" />
+                              <Separator layoutX="15.0" layoutY="381.0" prefHeight="5.0" prefWidth="775.0" />
+                              <Label layoutX="15.0" layoutY="395.0" text="•Schleifenwiderstand">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="measurementAreaResourcesLoopResistenceYes" layoutX="197.0" layoutY="395.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLoopResistenceYesClicked" text="Ja, Anzahl:" />
+                              <CheckBox fx:id="measurementAreaResourcesLoopResistenceNo" layoutX="429.0" layoutY="395.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLoopResistenceNoClicked" text="Nein" />
+                              <TextField fx:id="measurementAreaResourcesLoopResistencePercent" layoutX="293.0" layoutY="391.0" prefHeight="27.0" prefWidth="60.0" />
+                              <Label layoutX="358.0" layoutY="396.0" text="\%" />
+                              <Label layoutX="32.0" layoutY="428.0" text="Bemerkung hierzu:" />
+                              <TextArea fx:id="measurementAreaResourcesLoopResistenceComment" layoutX="152.0" layoutY="428.0" prefHeight="47.0" prefWidth="556.0" wrapText="true" />
+                              <Separator layoutX="15.0" layoutY="493.0" prefHeight="0.0" prefWidth="771.0" />
+                              <Label layoutX="15.0" layoutY="505.0" text="•Wurden thermische Auffälligkeiten messtechnisch vorgefunden?">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="measurementAreaResourcesThermicAbnormalityYes" layoutX="540.0" layoutY="505.0" mnemonicParsing="false" onAction="#measurementAreaResourcesThermicAbnormalityYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesThermicAbnormalityNo" layoutX="653.0" layoutY="505.0" mnemonicParsing="false" onAction="#measurementAreaResourcesThermicAbnormalityNoClicked" text="Nein" />
+                              <Label layoutX="32.0" layoutY="535.0" text="Bemerkung hierzu:" />
+                              <TextArea fx:id="measurementAreaResourcesThermicAbnormalityComment" layoutX="152.0" layoutY="535.0" prefHeight="47.0" prefWidth="558.0" wrapText="true" />
+                              <Separator layoutX="15.0" layoutY="601.0" prefHeight="0.0" prefWidth="771.0" />
+                              <Label layoutX="15.0" layoutY="621.0" text="Ortsveränderliche Betriebsmittel">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="15.0" layoutY="657.0" prefHeight="37.0" prefWidth="449.0" text="Werden nach Aussage des Betreibers die ortsveränderlichen Betriebsmittel regelmäßig geprüft (z. B. gemäß BetrSichV oder BGV A3)?" textAlignment="JUSTIFY" wrapText="true" />
+                              <Label layoutX="14.0" layoutY="694.0" prefHeight="78.0" prefWidth="447.0" text="Beinhalten diese Prüfungen nach Aussage des Betreibers auch fremde ortsveränderliche Betriebsmittel, d. h. privat mitgebrachte, gemietete, geleaste oder durch Dritte bereitgestellte Betriebsmittel?" textAlignment="JUSTIFY" wrapText="true" />
+                              <CheckBox fx:id="measurementAreaResourcesResourcesAuditYes" layoutX="544.0" layoutY="667.0" mnemonicParsing="false" onAction="#measurementAreaResourcesResourcesAuditYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesResourcesAuditNo" layoutX="653.0" layoutY="667.0" mnemonicParsing="false" onAction="#measurementAreaResourcesResourcesAuditNoClicked" text="Nein" />
+                              <CheckBox fx:id="measurementAreaResourcesLocalVariableResourcesYes" layoutX="544.0" layoutY="724.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLocalVariableResourcesYesClicked" text="Ja" />
+                              <CheckBox fx:id="measurementAreaResourcesLocalVariableResourcesNo" layoutX="653.0" layoutY="724.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLocalVariableResourcesNoClicked" text="Nein" />
+                              <Separator layoutX="14.0" layoutY="701.0" prefHeight="0.0" prefWidth="776.0" />
+                              <CheckBox fx:id="measurementAreaResourcesLocalVariableResourcesNR" layoutX="730.0" layoutY="724.0" mnemonicParsing="false" onAction="#measurementAreaResourcesLocalVariableResourcesNRClicked" text="nr" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Seite 2 - Teil 2">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="397.0" prefWidth="341.0">
+                           <children>
+                              <Label layoutX="23.0" layoutY="27.0" text="Allgemeine Informationen zur geprüften elektrischen Anlage">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="23.0" layoutY="70.0" text="Versorgungssystem" />
+                              <CheckBox fx:id="generalInformationSupplySystemTN" layoutX="42.0" layoutY="100.0" mnemonicParsing="false" onAction="#generalInformationSupplySystemTNClicked" text="TN" />
+                              <CheckBox fx:id="generalInformationSupplySystemTT" layoutX="131.0" layoutY="100.0" mnemonicParsing="false" onAction="#generalInformationSupplySystemTTClicked" text="TT" />
+                              <CheckBox fx:id="generalInformationSupplySystemIT" layoutX="215.0" layoutY="100.0" mnemonicParsing="false" onAction="#generalInformationSupplySystemITClicked" text="IT" />
+                              <CheckBox fx:id="generalInformationSupplySystemRing" layoutX="335.0" layoutY="100.0" mnemonicParsing="false" onAction="#generalInformationSupplySystemRingClicked" text="Ringeinspeisung" />
+                              <Label layoutX="25.0" layoutY="148.0" text="Leistungsbedarf der Gesamtanlage">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="generalInformationPowerRequirement" layoutX="281.0" layoutY="144.0" prefHeight="27.0" prefWidth="65.0" />
+                              <Label layoutX="355.0" layoutY="149.0" text="kVA" />
+                              <Label layoutX="25.0" layoutY="184.0" text="Maximal möglicher Fremdbezug in %, bezogen auf o. g. Gesamtleistungsbedarf" />
+                              <Label layoutX="25.0" layoutY="217.0" prefHeight="37.0" prefWidth="486.0" text="Maximal mögliche Eigenerzeugung (ohne Ersatzstrom) in %, bezogen auf o. g. Gesamtleistungsbedarf" wrapText="true" />
+                              <TextField fx:id="generalInformationExternalProcurement" layoutX="550.0" layoutY="179.0" prefHeight="27.0" prefWidth="73.0" />
+                              <TextField fx:id="generalInformationDomesticProduction" layoutX="550.0" layoutY="222.0" prefHeight="27.0" prefWidth="74.0" />
+                              <Label layoutX="632.0" layoutY="184.0" text="\%" />
+                              <Label layoutX="632.0" layoutY="227.0" text="\%" />
+                              <Label layoutX="25.0" layoutY="302.0" text="Schutzeinrichtungen (RCD / RCM):">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="25.0" layoutY="337.0" prefHeight="36.0" prefWidth="264.0" text="Fehlerstrom-Schutzeinrichtung (RCD) oder Differenzstrom-Überwachung (RCM)" wrapText="true" />
+                              <Label layoutX="338.0" layoutY="347.0" text="geschützte Stromkreise in %: " />
+                              <TextField fx:id="generalInformationProtectedCurcuit" layoutX="549.0" layoutY="342.0" prefHeight="27.0" prefWidth="77.0" />
+                              <Separator layoutX="14.0" layoutY="406.0" prefHeight="0.0" prefWidth="771.0" />
+                              <Label layoutX="25.0" layoutY="429.0" text="Für statistische Zwecke">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="25.0" layoutY="461.0" text="Geschätzte Anzahl der fest angeschlossenen Verbraucher in der elektrischen Anlage:" />
+                              <CheckBox fx:id="generalInformationElectricalConsumer250" layoutX="25.0" layoutY="492.0" mnemonicParsing="false" onAction="#generalInformationElectricalConsumer250Clicked" text="≤ 250" />
+                              <CheckBox fx:id="generalInformationElectricalConsumer500" layoutX="157.0" layoutY="492.0" mnemonicParsing="false" onAction="#generalInformationElectricalConsumer500Clicked" text="≤ 500" />
+                              <CheckBox fx:id="generalInformationElectricalConsumer1000" layoutX="287.0" layoutY="492.0" mnemonicParsing="false" onAction="#generalInformationElectricalConsumer1000Clicked" text="≤ 1.000" />
+                              <CheckBox fx:id="generalInformationElectricalConsumer5000" layoutX="433.0" layoutY="492.0" mnemonicParsing="false" onAction="#generalInformationElectricalConsumer5000Clicked" text="≤ 5.000" />
+                              <CheckBox fx:id="generalInformationElectricalConsumer5000Plus" layoutX="580.0" layoutY="492.0" mnemonicParsing="false" onAction="#generalInformationElectricalConsumer5000PlusClicked" text="&gt; 5.000" />
+                              <Separator layoutX="14.0" layoutY="536.0" prefHeight="0.0" prefWidth="768.0" />
+                              <Label layoutX="23.0" layoutY="557.0" text="Weitere Erläuterungen wie z. B. verwendete Messgeräte (optional):">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="explanationsExplanations" layoutX="22.0" layoutY="587.0" prefHeight="114.0" prefWidth="627.0" wrapText="true" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="Anhang A">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Button fx:id="newRow" layoutX="670.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNewRow" text="+ Neue Zeile" />
+                              <Label layoutX="7.0" layoutY="48.0" prefHeight="35.0" prefWidth="28.0" text="lfd.-Nr." wrapText="true" />
+                              <Label layoutX="45.0" layoutY="55.0" text="Gefahr" />
+                              <Label layoutX="149.0" layoutY="43.0" text="Gebäude / Anlage / Raum sowie ">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="102.0" layoutY="57.0" text="Mängelbeschreibung und empfohlene Maßnahmen">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="381.0" layoutY="57.0" text="Mangel-Nr." />
+                              <Label layoutX="469.0" layoutY="57.0" text="Betriebs-Ber." />
+                              <Label layoutX="569.0" layoutY="57.0" text="Erledigt am:" />
+                              <Label layoutX="698.0" layoutY="57.0" text="Verantw." />
+                              <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" layoutY="95.0" pannable="true" prefHeight="692.0" prefWidth="800.0">
+                                 <content>
+                                    <AnchorPane fx:id="appendixAnchorPane" prefHeight="690.0" prefWidth="759.0">
+                                       <children>
+                                          <Label layoutX="12.0" layoutY="14.0" text="1" />
+                                          <TextField layoutX="41.0" layoutY="10.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="101.0" layoutY="10.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="378.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="471.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="564.0" layoutY="10.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="675.0" layoutY="10.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="35.0" layoutY="49.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="12.0" layoutY="76.0" text="2" />
+                                          <TextField layoutX="41.0" layoutY="72.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="101.0" layoutY="72.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="378.0" layoutY="72.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="471.0" layoutY="72.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="564.0" layoutY="72.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="675.0" layoutY="72.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="33.0" layoutY="111.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="12.0" layoutY="137.0" text="3" />
+                                          <TextField layoutX="41.0" layoutY="133.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="101.0" layoutY="133.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="378.0" layoutY="133.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="471.0" layoutY="133.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="564.0" layoutY="133.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="675.0" layoutY="133.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="33.0" layoutY="172.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="12.0" layoutY="201.0" text="4" />
+                                          <TextField layoutX="41.0" layoutY="197.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="101.0" layoutY="197.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="378.0" layoutY="197.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="471.0" layoutY="197.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="564.0" layoutY="197.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="675.0" layoutY="197.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="33.0" layoutY="236.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="12.0" layoutY="264.0" text="5" />
+                                          <TextField layoutX="41.0" layoutY="260.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="101.0" layoutY="260.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="378.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="471.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="564.0" layoutY="260.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="675.0" layoutY="260.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="33.0" layoutY="299.0" prefHeight="0.0" prefWidth="720.0" />
+                                       </children></AnchorPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

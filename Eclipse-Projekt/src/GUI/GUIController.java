@@ -228,6 +228,74 @@ public class GUIController {
 
 		return result;
 	}
+	
+	/*
+	 * Alle Getter von Seite 1 Teil 1 zusammenfassen
+	 */
+	public void getAllPageOnePartOne() {
+		
+		int findingsBillNumber = getfindingsBillNumber();
+		String policyholderFirm = getpolicyholderFirm();
+		String policyholderStreet = getpolicyholderStreet();
+		int policyholderZIP = getpolicyholderZIP();
+		String policyholderCity = getpolicyholderCity();
+		int typeOfBusinessZone = gettypeOfBusinessZone();
+		boolean typeOfBusinessFrequenzyControlled = gettypeOfBusinessFrequenzyControlled();
+		boolean typeOfBusinessProtectiveAction = gettypeOfBusinessProtectiveAction();
+		String typeOfBusinessProtectiveActionYesText = gettypeOfBusinessProtectiveActionYesText();
+		String typeOfBusinessAllZonesCheckedDate = gettypeOfBusinessAllZonesCheckedDate();
+		boolean checktypeOfBusinessAllZonesCheckedDate = checktypeOfBusinessAllZonesCheckedDate();
+		String typeOfBusinessAllZonesReasonUnchecked = gettypeOfBusinessAllZonesReasonUnchecked();
+		int typeOfBusinessRenewal = gettypeOfBusinessRenewal();
+		int typeOfBusinessFaultRemoved = gettypeOfBusinessFaultRemoved();
+		
+	}
+	
+	
+	/*
+	 * Alle Getter von Seite 1 Teil 2 zusammenfassen
+	 */
+	public void getAllPageOnePartTwo() {
+		
+	}
+	
+	
+	/*
+	 * Alle Getter von Seite 2 Teil 1 zusammenfassen
+	 */
+	public void getAllPageTwoPartOne() {
+		
+		int evaluationResultsHazardCategory = getevaluationResultsHazardCategory();
+		String evaluationResultsNotes = getevaluationResultsNotes();
+		int evaluationResultsFaults = getevaluationResultsFaults();
+		String evaluationResultsFaultsDate = getevaluationResultsFaultsDate();
+		int evaluationResultsPageNumber = getevaluationResultsPageNumber();
+		
+	}
+	
+	
+	/*
+	 * Alle Getter von Seite 2 Teil 2 zusammenfassen
+	 */
+	public void getAllPageTwoPartTwo() {
+		
+		
+		
+	}
+	
+	
+	
+	/*
+	 * Speicherfunktion, verwendet Ergebnisse aus Gettern 
+	 * für einzelne Bereiche und schreibt Variablen mittels
+	 * SQL in die DB
+	 */
+	
+	public void saveEntireBill() {
+		
+	}
+	
+	
 
 	/*
 	 **************************
@@ -253,7 +321,65 @@ public class GUIController {
 	}
 	
 	
-	//Versicherungsnehmer Getter einfügen!
+	/*
+	 * Getter für Versicherungsnehmer Firma
+	 * returns String
+	 */
+	public String getpolicyholderFirm() {
+		String result = "";
+		if(!policyholderFirm.getText().isEmpty()) {
+			result = policyholderFirm.getText();
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	
+	/*
+	 * Getter für Versicherungsnehmer Straße
+	 * returns Integer
+	 */
+	public String getpolicyholderStreet() {
+		String result = "";
+		if(!policyholderStreet.getText().isEmpty()) {
+			result = policyholderStreet.getText();
+		} else {
+			//Fehler behandeln
+		}
+		return result;
+	} 
+	
+	
+	/*
+	 * Getter für Versicherungsnehmer PLZ
+	 * returns Integer
+	 */
+	public int getpolicyholderZIP() {
+		int result = 0;
+		if(!policyholderZIP.getText().isEmpty()) {
+			result = Integer.parseInt(policyholderZIP.getText());
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Versicherungsnehmer Ort
+	 * returns String
+	 */
+	public String getpolicyholderCity() {
+		String result = "";
+		if(!policyholderCity.getText().isEmpty()) {
+			result = policyholderCity.getText();
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
 	
 	
 	/*
@@ -598,6 +724,21 @@ public class GUIController {
 	public void evaluationResultsFaultsFireHazardClicked() {
 		evaluationResultsFaults.setSelected(false);
 		evaluationResultsNoFaults.setSelected(false);
+	}
+	
+	
+	public int getevaluationResultsFaults() {
+		int result = 0;
+		if(evaluationResultsNoFaults.isSelected()) {
+			result = 1;
+		} else if (evaluationResultsFaults.isSelected()) {
+			result = 2;
+		} else if (evaluationResultsFaultsFireHazard.isSelected()) {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
 	}
 	
 	
@@ -1162,6 +1303,13 @@ public class GUIController {
 	
 	private int y_margin = 264;
 	private int margin_separator = y_margin + 35;
+	
+	
+	/* 
+	 * Erzeugt alle nötigen Elemente und
+	 * platziert sie entsprechend, für 
+	 * eine neue Reihe an Mängeln
+	 */
 	
 	public void addNewRow() {
 		int elementNr= 5;

@@ -33,6 +33,14 @@ public class GUIController {
 	@FXML
 	private TextField findingsBillNumber;
 	@FXML
+	private TextField policyholderFirm;
+	@FXML
+	private TextField policyholderStreet;
+	@FXML
+	private TextField policyholderZIP;
+	@FXML
+	private TextField policyholderCity;
+	@FXML
 	private TextField typeOfBusinessZone;
 	@FXML
 	private CheckBox typeOfBusinessFrequenzyControlledYes;
@@ -243,6 +251,9 @@ public class GUIController {
 		}
 		return result;
 	}
+	
+	
+	//Versicherungsnehmer Getter einfügen!
 	
 	
 	/*

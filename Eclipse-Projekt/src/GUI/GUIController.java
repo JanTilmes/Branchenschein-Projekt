@@ -1,7 +1,9 @@
 package GUI;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -252,6 +254,7 @@ public class GUIController {
 	}
 	
 	
+	
 	/*
 	 * Alle Getter von Seite 1 Teil 2 zusammenfassen
 	 */
@@ -322,6 +325,16 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Befundscheinnr
+	 * 
+	 */
+	public void setfindingsBillNumber(int result) {
+		String text =  String.valueOf(result);
+		findingsBillNumber.setText(text);
+	}
+	
+	
+	/*
 	 * Getter für Versicherungsnehmer Firma
 	 * returns String
 	 */
@@ -336,6 +349,14 @@ public class GUIController {
 	}
 	
 	
+	/*
+	 * Setter für Versicherungsnehmer Firma
+	 * 
+	 */
+	public void setpolicyholderFirm(String result) {
+		policyholderFirm.setText(result);
+	}
+	
 	
 	/*
 	 * Getter für Versicherungsnehmer Straße
@@ -349,7 +370,16 @@ public class GUIController {
 			//Fehler behandeln
 		}
 		return result;
-	} 
+	}
+	
+	
+	/*
+	 * Setter für Versicherungsnehmer Straße
+	 * 
+	 */
+	public void setpolicyholderStreet(String result) {
+		policyholderStreet.setText(result);
+	}
 	
 	
 	/*
@@ -364,6 +394,16 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Versicherungsnehmer PLZ
+	 * 
+	 */
+	public void setpolicyholderZIP(int result) {
+		String text = String.valueOf(result);
+		policyholderStreet.setText(text);
 	}
 	
 	
@@ -383,6 +423,15 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Versicherungsnehmer Ort
+	 * 
+	 */
+	public void setpolicyholderCity(String result) {
+		policyholderCity.setText(result);
+	}
+	
+	
+	/*
 	 * Getter für Bereich
 	 * inkl. Prüfung ob int
 	 * returns Integer
@@ -395,6 +444,16 @@ public class GUIController {
 			// Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Bereich
+	 * 
+	 */
+	public void settypeOfBusinessZone(int result) {
+		String text = String.valueOf(result);
+		typeOfBusinessZone.setText(text);
 	}
 	
 	
@@ -424,6 +483,20 @@ public class GUIController {
 		return result;
 	}
 	
+	
+	/*
+	 * Setter für frequenzgesteuerte Betriebsmittel
+	 * 
+	 */
+	public void settypeOfBusinessFrequenzyControlled(boolean result) {
+		if(result == true) {
+			typeOfBusinessFrequenzyControlledYes.setSelected(true);
+		} else {
+			typeOfBusinessFrequenzyControlledNo.setSelected(true);
+		}
+	}
+	
+	
 	/*
 	 * Wechsel zwischen Ja/Nein-Checkboxen
 	 */
@@ -449,6 +522,19 @@ public class GUIController {
 		}
 		return result;
 	}
+	
+	
+	/*
+	 * Setter für besondere Schutzmaßnahmen
+	 * 
+	 */
+	public void settypeOfBusinessProtectiveAction(boolean result) {
+		if(result == true) {
+			typeOfBusinessProtectiveActionYes.setSelected(true);
+		} else {
+			typeOfBusinessProtectiveActionNo.setSelected(true);
+		}
+	}
 
 	
 	/*
@@ -463,6 +549,15 @@ public class GUIController {
 			// Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Bereiche mit besonderen Schutzmaßnahmen
+	 * 
+	 */
+	public void settypeOfBusinessProtectiveActionYesText(String result) {
+		typeOfBusinessProtectiveActionYesText.setText(result);
 	}
 
 	
@@ -479,7 +574,7 @@ public class GUIController {
 
 	
 	/*
-	 * Getter für alle Bereiche geprüft
+	 * Getter für alle Bereiche geprüft Datum
 	 * prüft auf leere Eingabe
 	 * returns String
 	 */
@@ -491,6 +586,15 @@ public class GUIController {
 			// Fehler behandeln!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für alle Bereiche geprüft Datum
+	 * 
+	 */
+	public void settypeOfBusinessAllZonesCheckedDate(LocalDate result) {
+		typeOfBusinessAllZonesCheckedDate.setValue(result);
 	}
 
 	
@@ -510,7 +614,7 @@ public class GUIController {
 
 	
 	/*
-	 * Getter für Begründungstext
+	 * Getter für Begründungstext nicht geprüfte Bereiche
 	 * returns String
 	 */
 	public String gettypeOfBusinessAllZonesReasonUnchecked() {
@@ -521,6 +625,15 @@ public class GUIController {
 			// Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Begründungstext nicht geprüfte Bereiche
+	 * 
+	 */
+	public void settypeOfBusinessAllZonesReasonUnchecked(String result) {
+		typeOfBusinessAllZonesReasonUnchecked.setText(result);
 	}
 
 	
@@ -568,6 +681,21 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Erneuerungen seit letzer Revision
+	 * 
+	 */
+	public void settypeOfBusinessRenewal(int result) {
+		if (result == 1) {
+			typeOfBusinessRenewalFirst.setSelected(true);
+		} else if (result == 2) {
+			typeOfBusinessRenewalYes.setSelected(true);
+		} else if (result == 3) {
+			typeOfBusinessRenewalNo.setSelected(true);
+		}
+	}
+	
+	
+	/*
 	 * Wechsel zwischen Bericht fehlt/Ja/Nein
 	 */
 	public void typeOfBusinessFaultRemovedMissingClicked() {
@@ -607,6 +735,21 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für alle Mängel beseitigt
+	 * 
+	 */
+	public void settypeOfBusinessFaultRemoved(int result) {
+		if (result == 1) {
+			typeOfBusinessFaultRemovedMissing.setSelected(true);
+		} else if (result == 2) {
+			typeOfBusinessFaultRemovedYes.setSelected(true);
+		} else if (result == 3) {
+			typeOfBusinessFaultRemovedNo.setSelected(true);
+		}
 	}
 	
 	
@@ -906,15 +1049,15 @@ public class GUIController {
 	
 	/*
 	 * Getter für Fehlerstrom-Schutzeinrichtung
-	 * returns int
+	 * returns double
 	 * 1=Ja
 	 * 3=Nein
 	 * Wenn Prozentangabe, wird diese returnt
 	 */
-	public int getmeasurementAreaResourcesLeakageCurrent() {
-		int result = 0;
+	public double getmeasurementAreaResourcesLeakageCurrent() {
+		double result = 0;
 		if(!measurementAreaResourcesLeakageCurrentPercent.getText().isEmpty()) {
-			result = Integer.parseInt(measurementAreaResourcesLeakageCurrentPercent.getText());
+			result = Double.parseDouble(measurementAreaResourcesLeakageCurrentPercent.getText());
 		} else if (measurementAreaResourcesLeakageCurrentAll.isSelected()) {
 			result = 1;
 		} else if (measurementAreaResourcesLeakageCurrentNo.isSelected()) {

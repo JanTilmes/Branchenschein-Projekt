@@ -76,10 +76,46 @@ public class GUIController {
 	private CheckBox typeOfBusinessFaultRemovedNo;
 	@FXML
 	private Button addRiskAdressButton;
-	@FXML 
-	private Button changeRiskAdressButton;
+	
 	@FXML
-	private Label billRiskAdressStreet;
+	private Pane newRiskAdressPane;
+	@FXML
+	private Button setRiskAdressData;
+	@FXML
+	private Label riskAdressStreet;
+	@FXML
+	private Label riskAdressZIP;
+	@FXML
+	private Label riskAdressCity;
+	@FXML
+	private Label riskAdressCompanion;
+	@FXML
+	private Label riskAdressExpert;
+	@FXML
+	private Label riskAdressNr;
+	@FXML
+	private Label riskAdressDate;
+	@FXML
+	private Label riskAdressDuration;
+	@FXML
+	private TextField setriskAdressStreet;
+	@FXML
+	private TextField setriskAdressZIP;
+	@FXML
+	private TextField setriskAdressCity;
+	@FXML
+	private TextField setriskAdressCompanion;
+	@FXML
+	private TextField setriskAdressExpert;
+	@FXML
+	private TextField setriskAdressNr;
+	@FXML
+	private DatePicker setriskAdressDate;
+	@FXML
+	private TextField setriskAdressDuration;
+	@FXML
+	private Button closeRiskAdressButton;
+	
 	
 
 	/*
@@ -754,26 +790,41 @@ public class GUIController {
 	
 	
 	public void addRiskAdress() {
-		try {
-			FXMLLoader loader = new FXMLLoader(StartMain.class.getResource("RiskAdressWindow.fxml"));
-			Parent root1 = (Parent) loader.load();
-			RiskAdressController c = (RiskAdressController) loader.getController();
-			Stage stage = new Stage();
-			stage.setTitle("Neuen Risikoadresse anlegen");
-			stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
-			Scene scene = new Scene(root1);
-			//scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			System.out.println("GUI could not be loaded");
-			e.printStackTrace();
-		}
+//		try {
+//			FXMLLoader loader = new FXMLLoader(StartMain.class.getResource("RiskAdressWindow.fxml"));
+//			Parent root1 = (Parent) loader.load();
+//			RiskAdressController c = (RiskAdressController) loader.getController();
+//			Stage stage = new Stage();
+//			stage.setTitle("Neuen Risikoadresse anlegen");
+//			stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+//			Scene scene = new Scene(root1);
+//			//scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
+//			stage.setScene(scene);
+//			stage.show();
+//		} catch (IOException e) {
+//			System.out.println("GUI could not be loaded");
+//			e.printStackTrace();
+//		}
+		
+		newRiskAdressPane.setVisible(true);
 		
 	}
 	
-	public void changeRiskAdress() {
+	public void setRiskAdressData() {
+		riskAdressStreet.setText(setriskAdressStreet.getText());
+		riskAdressZIP.setText(setriskAdressZIP.getText());
+		riskAdressCompanion.setText(setriskAdressCompanion.getText());
+		riskAdressExpert.setText(setriskAdressExpert.getText());
+		riskAdressNr.setText(setriskAdressNr.getText());
+		riskAdressDate.setText(setriskAdressDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+		riskAdressDuration.setText(setriskAdressDuration.getText());
 		
+		newRiskAdressPane.setVisible(false);
+	}
+	
+	
+	public void closeRiskAdressPane() {
+		newRiskAdressPane.setVisible(false);
 	}
 	
 	
@@ -838,6 +889,24 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Gefährdungskategorie
+	 * 
+	 */
+	public void setevaluationResultsHazardCategory(int result) {
+		if (result == 1) {
+			evaluationResultsHazardCategoryA.setSelected(true);
+		} else if(result == 2) {
+			evaluationResultsHazardCategoryB.setSelected(true);
+		} else if (result == 3) {
+			evaluationResultsHazardCategoryC.setSelected(true);
+		} else if (result == 4) {
+			evaluationResultsHazardCategoryD.setSelected(true);
+		}
+	} 
+	
+	
+	
+	/*
 	 * Getter für Ergänzenden Erläuterungen Gesamtberurteilung
 	 * returns String
 	 */
@@ -850,6 +919,15 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Ergänzenden Erläuterungen Gesamtberurteilung
+	 * 
+	 */
+	public void setevaluationResultsNotes(String result) {
+		evaluationResultsNotes.setText(result);
 	}
 	
 	
@@ -870,6 +948,10 @@ public class GUIController {
 	}
 	
 	
+	/*
+	 * Getter für Prüfungsergebnis
+	 * returns int
+	 */
 	public int getevaluationResultsFaults() {
 		int result = 0;
 		if(evaluationResultsNoFaults.isSelected()) {
@@ -886,6 +968,21 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Prüfungsergebnis
+	 * 
+	 */
+	public void setevaluationResultsFaults(int result) {
+		if (result == 1) {
+			evaluationResultsNoFaults.setSelected(true);
+		} else if (result == 2) {
+			evaluationResultsFaults.setSelected(true);
+		} else if (result == 3) {
+			evaluationResultsFaultsFireHazard.setSelected(true);
+		}
+	} 
+	
+	
+	/*
 	 * Getter für Datum Prüfungsergebnis
 	 * returns String
 	 */
@@ -898,6 +995,15 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Datum Prüfungsergebnis
+	 * 
+	 */
+	public void setevaluationResultsFaultsDate(LocalDate result) {
+		evaluationResultsFaultsDate.setValue(result);
 	}
 	
 	
@@ -921,6 +1027,14 @@ public class GUIController {
 	}
 	
 	
+	/*
+	 * Setter für Anzahl Befundscheinseiten
+	 * 
+	 */
+	public void setevaluationResultsPageNumber(int result) {
+		String text = String.valueOf(result);
+		evaluationResultsPageNumber.setText(text);
+	}
 	
 	
 	
@@ -960,6 +1074,19 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Messung in mind. 50%
+	 *
+	 */
+	public void setmeasurementAreaResourcesInsulatingResistence(boolean result) {
+		if(result == true) {
+			measurementAreaResourcesInsulatingResistenceYes.setSelected(result);
+		} else if (result == false) {
+			measurementAreaResourcesInsulatingResistenceNo.setSelected(true);
+		}
+	}
+	
+	
+	/*
 	 * Wechsel zwischen Ja/Nein Isolationswiderstandsmessungen, ersatzweise Messprotokolle
 	 */
 	public void measurementAreaResourcesReplacementTestRecordYesClicked() {
@@ -975,14 +1102,29 @@ public class GUIController {
 	 * returns Boolean
 	 */
 	public boolean getmeasurementAreaResourcesReplacementTestRecord() {
-		boolean result;
+		boolean result = false;
 		if(measurementAreaResourcesReplacementTestRecordYes.isSelected()) {
 			result = true;
-		}
-		else {
+		} else if (measurementAreaResourcesReplacementTestRecordNo.isSelected()) {
 			result = false;
 		}
+		else {
+			//Fehler behandeln
+		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für ersatzweise Messprotokolle
+	 * 
+	 */
+	public void setmeasurementAreaResourcesReplacementTestRecord(boolean result) {
+		if(result == true) {
+			measurementAreaResourcesReplacementTestRecordYes.setSelected(true);
+		} else if (result == false) {
+			measurementAreaResourcesReplacementTestRecordNo.setSelected(true);
+		}
 	}
 	
 	
@@ -1014,6 +1156,19 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Ersatzmaßnahmen
+	 * 
+	 */
+	public void setmeasurementAreaResourcesContingencyMeasures(boolean result) {
+		if (result == true) {
+			measurementAreaResourcesContingencyMeasuresYes.setSelected(true);
+		} else if (result == false) {
+			measurementAreaResourcesContingencyMeasuresNo.setSelected(true);
+		}
+	}
+	
+	
+	/*
 	 * Getter für Bemerkungen Isolationswiderstand
 	 * returns Result
 	 */
@@ -1026,6 +1181,15 @@ public class GUIController {
 			//Fehler behandeln!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Bemerkungen Isolationswiderstand
+	 * 
+	 */
+	public void setmeasurementAreaResourcesContingencyMeasuresComment(String result) {
+		measurementAreaResourcesContingencyMeasuresComment.setText(result);
 	}
 	
 	
@@ -1059,9 +1223,9 @@ public class GUIController {
 		if(!measurementAreaResourcesLeakageCurrentPercent.getText().isEmpty()) {
 			result = Double.parseDouble(measurementAreaResourcesLeakageCurrentPercent.getText());
 		} else if (measurementAreaResourcesLeakageCurrentAll.isSelected()) {
-			result = 1;
+			result = 1.0;
 		} else if (measurementAreaResourcesLeakageCurrentNo.isSelected()) {
-			result = 3;
+			result = 3.0;
 		} else {
 			//Fehler behandeln
 		}
@@ -1070,7 +1234,24 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Fehlerstrom-Schutzeinrichtung
+	 * 
+	 */
+	public void setmeasurementAreaResourcesLeakageCurrent(double result) {
+		if (result == 1.0) {
+			measurementAreaResourcesLeakageCurrentAll.setSelected(true);
+		}  else if (result == 3.0) {
+			measurementAreaResourcesLeakageCurrentNo.setSelected(true);
+		} else {
+			String text = String.valueOf(result);
+			measurementAreaResourcesLeakageCurrentPercent.setText(text);
+		}
+	}
+	
+	
+	/*
 	 * Getter für Bemerkungen Fehlerstrom
+	 * returns String
 	 */
 	public String getmeasurementAreaResourcesLeakageCurrentComment() {
 		String result = "";
@@ -1080,6 +1261,15 @@ public class GUIController {
 			//Fehler behandeln!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Bemerkungen Fehlerstrom
+	 * 
+	 */
+	public void setmeasurementAreaResourcesLeakageCurrentComment(String result) {
+		measurementAreaResourcesLeakageCurrentComment.setText(result);
 	}
 	
 	
@@ -1094,20 +1284,36 @@ public class GUIController {
 	}
 	
 	
+	//GEÄNDERT//!!!!!!!!!!
 	/*
 	 * Getter für Schleifenwiderstand
-	 * returns int
+	 * returns double
 	 */
-	public int getmeasurementAreaResourcesLoopResistence() {
-		int result = 0;
+	public double getmeasurementAreaResourcesLoopResistence() {
+		double result = 0;
 		if(measurementAreaResourcesLoopResistenceYes.isSelected()) {
-			result = Integer.parseInt(measurementAreaResourcesLoopResistencePercent.getText());
+			result = Double.parseDouble(measurementAreaResourcesLoopResistencePercent.getText());
 		} else if (measurementAreaResourcesLoopResistenceNo.isSelected()) {
-			result = 2;
+			result = 2.0;
 		} else {
 			//Fehler behandeln
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Schleifenwiderstand
+	 * 
+	 */
+	public void setmeasurementAreaResourcesLoopResistence(int result) {
+		if (result == 2.0) {
+			measurementAreaResourcesLoopResistenceNo.setSelected(true);
+		} else {
+			String text = String.valueOf(result);
+			measurementAreaResourcesLoopResistenceYes.setSelected(true);
+			measurementAreaResourcesLoopResistencePercent.setText(text);
+		}
 	}
 	
 	
@@ -1123,6 +1329,15 @@ public class GUIController {
 			//Fehler behandeln!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Schleifenwiderstand Bemerkungen
+	 * 
+	 */
+	public void setmeasurementAreaResourcesLoopResistenceComment(String result) {
+		measurementAreaResourcesLoopResistenceComment.setText(result);
 	}
 
 	
@@ -1155,6 +1370,19 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Thermische Auffälligkeiten
+	 * 
+	 */
+	public void setmeasurementAreaResourcesThermicAbnormality(boolean result) {
+		if (result == true) {
+			measurementAreaResourcesThermicAbnormalityYes.setSelected(true);
+		} else if (result == false) {
+			measurementAreaResourcesThermicAbnormalityNo.setSelected(true);
+		}
+	}
+	
+	
+	/*
 	 * Getter für Bemerkung Thermische Auffälligkeiten
 	 * returns String
 	 */
@@ -1166,6 +1394,15 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Bemerkung Thermische Auffälligkeiten
+	 * 
+	 */
+	public void setmeasurementAreaResourcesThermicAbnormalityComment(String result) {
+		measurementAreaResourcesThermicAbnormalityComment.setText(result);
 	}
 
 	
@@ -1194,6 +1431,19 @@ public class GUIController {
 			//Fehler behandeln
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Ortsveränderliche Betriebsmittel
+	 * 
+	 */
+	public void setmeasurementAreaResourcesResourcesAudit(boolean result) {
+		if (result == true) {
+			measurementAreaResourcesResourcesAuditYes.setSelected(true);
+		} else if (result == false) {
+			measurementAreaResourcesResourcesAuditNo.setSelected(true);
+		}
 	}
 	
 	
@@ -1233,6 +1483,21 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für fremde Betriebsmittel
+	 * 
+	 */
+	public void setmeasurementAreaResourcesLocalVariableResources(int result) {
+		if (result == 1) {
+			measurementAreaResourcesLocalVariableResourcesYes.setSelected(true);
+		} else if (result == 2) {
+			measurementAreaResourcesLocalVariableResourcesNo.setSelected(true);
+		} else if (result == 3) {
+			measurementAreaResourcesLocalVariableResourcesNR.setSelected(true);
+		}
 	}
 	
 	/*
@@ -1294,6 +1559,23 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Versorgungssystem
+	 * 
+	 */
+	public void setgeneralInformationSupplySystem(int result) {
+		if (result == 1) {
+			generalInformationSupplySystemTN.setSelected(true);
+		} else if (result == 2) {
+			generalInformationSupplySystemTT.setSelected(true); 
+		} else if (result == 3) {
+			generalInformationSupplySystemIT.setSelected(true);
+		} else if (result == 4) {
+			generalInformationSupplySystemRing.setSelected(true);
+		}	
+	}
+	
+	
+	/*
 	 * Getter für Leistungsbedarf Gesamtanlage
 	 * returns double
 	 */
@@ -1305,6 +1587,16 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Leistungsbedarf Gesamtanlage
+	 * 
+	 */
+	public void setgeneralInformationPowerRequirement(double result) {
+		String text = String.valueOf(result);
+		generalInformationPowerRequirement.setText(text);
 	}
 	
 	
@@ -1324,6 +1616,16 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für max. Fremdbezug
+	 * 
+	 */
+	public void setgeneralInformationExternalProcurement(double result) {
+		String text = String.valueOf(result);
+		generalInformationExternalProcurement.setText(text);
+	}
+	
+	
+	/*
 	 * Getter für max. Eigenerzeugung
 	 * returns double
 	 */
@@ -1339,6 +1641,16 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für max. Eigenerzeugung
+	 * 
+	 */
+	public void setgeneralInformationDomesticProduction(double result) {
+		String text = String.valueOf(result);
+		generalInformationDomesticProduction.setText(text);
+	}
+	
+	
+	/*
 	 * Getter für 
 	 * returns double
 	 */
@@ -1350,6 +1662,16 @@ public class GUIController {
 			//Fehler behandeln!!
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für 
+	 * 
+	 */
+	public void setgeneralInformationProtectedCurcuit(double result) {
+		String text = String.valueOf(result);
+		generalInformationProtectedCurcuit.setText(text);
 	}
 	
 	
@@ -1417,6 +1739,25 @@ public class GUIController {
 	
 	
 	/*
+	 * Setter für Anzahl Verbraucher
+	 * 
+	 */
+	public void setgeneralInformationElectricalConsumer(int result) {
+		if (result == 1) {
+			generalInformationElectricalConsumer250.setSelected(true);
+		} else if (result == 2) {
+			generalInformationElectricalConsumer500.setSelected(true);
+		} else if (result == 3) {
+			generalInformationElectricalConsumer1000.setSelected(true);
+		} else if (result == 4) {
+			generalInformationElectricalConsumer5000.setSelected(true);
+		} else if (result == 5) {
+			generalInformationElectricalConsumer5000Plus.setSelected(true);
+		}
+	}
+	
+	
+	/*
 	 * Getter für Weitere Erläuterungen
 	 * returns String
 	 */
@@ -1426,6 +1767,15 @@ public class GUIController {
 			result = explanationsExplanations.getText();
 		}
 		return result;
+	}
+	
+	
+	/*
+	 * Setter für Weitere Erläuterungen
+	 * 
+	 */
+	public void setexplanationsExplanations(String result) {
+		explanationsExplanations.setText(result);
 	}
 	
 	

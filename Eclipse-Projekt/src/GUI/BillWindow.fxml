@@ -17,6 +17,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -131,7 +132,6 @@
                               <DatePicker fx:id="typeOfBusinessAllZonesCheckedDate" layoutX="668.0" layoutY="481.0" prefHeight="27.0" prefWidth="114.0" />
                               <Label layoutX="334.0" layoutY="395.0" />
                               <Button fx:id="addRiskAdressButton" layoutX="566.0" layoutY="97.0" mnemonicParsing="false" onAction="#addRiskAdress" prefHeight="27.0" prefWidth="31.0" text="+" />
-                              <Button fx:id="changeRiskAdressButton" layoutX="611.0" layoutY="97.0" mnemonicParsing="false" onAction="#changeRiskAdress" prefHeight="27.0" prefWidth="30.0" text="-" />
                               <Label layoutX="471.0" layoutY="128.0" text="Straße/Nr">
                                  <font>
                                     <Font size="11.0" />
@@ -165,37 +165,37 @@
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="594.0" layoutY="175.0" text="Placeholder Begleiter">
+                              <Label fx:id="riskAdressCompanion" layoutX="594.0" layoutY="175.0" text="Placeholder Begleiter">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="594.0" layoutY="191.0" text="Placeholder Sachv.">
+                              <Label fx:id="riskAdressExpert" layoutX="594.0" layoutY="191.0" text="Placeholder Sachv.">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="594.0" layoutY="207.0" text="Placeholder VdS">
+                              <Label fx:id="riskAdressNr" layoutX="594.0" layoutY="207.0" text="Placeholder VdS">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="595.0" layoutY="223.0" text="Placeholder Datum">
+                              <Label fx:id="riskAdressDate" layoutX="595.0" layoutY="223.0" text="Placeholder Datum">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="594.0" layoutY="238.0" text="Placeholder Dauer">
+                              <Label fx:id="riskAdressDuration" layoutX="594.0" layoutY="238.0" text="Placeholder Dauer">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="billRiskAdressStreet" layoutX="594.0" layoutY="127.0" text="Placeholder Str">
+                              <Label fx:id="riskAdressStreet" layoutX="594.0" layoutY="127.0" text="Placeholder Str">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="594.0" layoutY="144.0" text="Placeholder PLZ">
+                              <Label fx:id="riskAdressZIP" layoutX="594.0" layoutY="144.0" text="Placeholder PLZ">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
@@ -208,6 +208,26 @@
                               <TextField fx:id="policyholderStreet" layoutX="122.0" layoutY="162.0" prefHeight="27.0" prefWidth="185.0" />
                               <TextField fx:id="policyholderZIP" layoutX="122.0" layoutY="192.0" prefHeight="27.0" prefWidth="185.0" />
                               <TextField fx:id="policyholderCity" layoutX="122.0" layoutY="224.0" prefHeight="27.0" prefWidth="185.0" />
+                              <Pane fx:id="newRiskAdressPane" layoutX="467.0" layoutY="120.0" prefHeight="336.0" prefWidth="318.0" style="-fx-background-color: #fff;" visible="false">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="27.0" text="Straße/Nr:" />
+                                    <Label layoutX="19.0" layoutY="57.0" text="PLZ/Ort:" />
+                                    <Label layoutX="14.0" layoutY="129.0" text="Begleiter vom VN:" />
+                                    <Label layoutX="15.0" layoutY="160.0" text="Sachverständiger:" />
+                                    <Label layoutX="20.0" layoutY="193.0" text="VdS-Anerk.-Nr.:" />
+                                    <Label layoutX="17.0" layoutY="224.0" text="Datum der Prüfung:" />
+                                    <Label layoutX="14.0" layoutY="256.0" text="Prüfungsdauer:" />
+                                    <TextField fx:id="setriskAdressStreet" layoutX="134.0" layoutY="22.0" />
+                                    <TextField fx:id="setriskAdressZIP" layoutX="134.0" layoutY="52.0" />
+                                    <TextField fx:id="setriskAdressCompanion" layoutX="134.0" layoutY="124.0" />
+                                    <TextField fx:id="setriskAdressExpert" layoutX="134.0" layoutY="155.0" />
+                                    <TextField fx:id="setriskAdressNr" layoutX="134.0" layoutY="188.0" />
+                                    <TextField fx:id="setriskAdressDuration" layoutX="134.0" layoutY="251.0" />
+                                    <DatePicker fx:id="setriskAdressDate" layoutX="154.0" layoutY="219.0" prefHeight="27.0" prefWidth="127.0" />
+                                    <Button fx:id="setRiskAdressData" layoutX="101.0" layoutY="289.0" mnemonicParsing="false" onAction="#setRiskAdressData" text="Daten eintragen" />
+                                    <Button fx:id="closeRiskAddressButton" layoutX="268.0" layoutY="289.0" mnemonicParsing="false" onAction="#closeRiskAdressPane" text="X" />
+                                 </children>
+                              </Pane>
                            </children>
                         </AnchorPane>
                   </content>

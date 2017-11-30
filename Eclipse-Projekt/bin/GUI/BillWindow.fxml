@@ -21,9 +21,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" minHeight="800.0" minWidth="600.0" prefHeight="850.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
+<VBox alignment="CENTER" prefHeight="850.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GUIController">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
+    <MenuBar prefHeight="29.0" prefWidth="800.0" VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="Datei">
           <items>
@@ -165,37 +165,37 @@
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressCompanion" layoutX="594.0" layoutY="175.0" text="Placeholder Begleiter">
+                              <Label fx:id="riskAdressCompanion" layoutX="594.0" layoutY="175.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressExpert" layoutX="594.0" layoutY="191.0" text="Placeholder Sachv.">
+                              <Label fx:id="riskAdressExpert" layoutX="594.0" layoutY="191.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressNr" layoutX="594.0" layoutY="207.0" text="Placeholder VdS">
+                              <Label fx:id="riskAdressNr" layoutX="594.0" layoutY="207.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressDate" layoutX="595.0" layoutY="223.0" text="Placeholder Datum">
+                              <Label fx:id="riskAdressDate" layoutX="595.0" layoutY="223.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressDuration" layoutX="594.0" layoutY="238.0" text="Placeholder Dauer">
+                              <Label fx:id="riskAdressDuration" layoutX="594.0" layoutY="238.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressStreet" layoutX="594.0" layoutY="127.0" text="Placeholder Str">
+                              <Label fx:id="riskAdressStreet" layoutX="594.0" layoutY="127.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="riskAdressZIP" layoutX="594.0" layoutY="144.0" text="Placeholder PLZ">
+                              <Label fx:id="riskAdressZIP" layoutX="594.0" layoutY="144.0">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
@@ -208,7 +208,7 @@
                               <TextField fx:id="policyholderStreet" layoutX="122.0" layoutY="162.0" prefHeight="27.0" prefWidth="185.0" />
                               <TextField fx:id="policyholderZIP" layoutX="122.0" layoutY="192.0" prefHeight="27.0" prefWidth="185.0" />
                               <TextField fx:id="policyholderCity" layoutX="122.0" layoutY="224.0" prefHeight="27.0" prefWidth="185.0" />
-                              <Pane fx:id="newRiskAdressPane" layoutX="467.0" layoutY="120.0" prefHeight="336.0" prefWidth="318.0" style="-fx-background-color: #fff;" visible="false">
+                              <Pane fx:id="newRiskAdressPane" layoutX="436.0" layoutY="120.0" prefHeight="343.0" prefWidth="349.0" style="-fx-background-color: #fff;" visible="false">
                                  <children>
                                     <Label layoutX="14.0" layoutY="27.0" text="Straße/Nr:" />
                                     <Label layoutX="19.0" layoutY="57.0" text="PLZ/Ort:" />
@@ -217,15 +217,16 @@
                                     <Label layoutX="20.0" layoutY="193.0" text="VdS-Anerk.-Nr.:" />
                                     <Label layoutX="17.0" layoutY="224.0" text="Datum der Prüfung:" />
                                     <Label layoutX="14.0" layoutY="256.0" text="Prüfungsdauer:" />
-                                    <TextField fx:id="setriskAdressStreet" layoutX="134.0" layoutY="22.0" />
-                                    <TextField fx:id="setriskAdressZIP" layoutX="134.0" layoutY="52.0" />
-                                    <TextField fx:id="setriskAdressCompanion" layoutX="134.0" layoutY="124.0" />
-                                    <TextField fx:id="setriskAdressExpert" layoutX="134.0" layoutY="155.0" />
-                                    <TextField fx:id="setriskAdressNr" layoutX="134.0" layoutY="188.0" />
-                                    <TextField fx:id="setriskAdressDuration" layoutX="134.0" layoutY="251.0" />
-                                    <DatePicker fx:id="setriskAdressDate" layoutX="154.0" layoutY="219.0" prefHeight="27.0" prefWidth="127.0" />
-                                    <Button fx:id="setRiskAdressData" layoutX="101.0" layoutY="289.0" mnemonicParsing="false" onAction="#setRiskAdressData" text="Daten eintragen" />
-                                    <Button fx:id="closeRiskAddressButton" layoutX="268.0" layoutY="289.0" mnemonicParsing="false" onAction="#closeRiskAdressPane" text="X" />
+                                    <TextField fx:id="setriskAdressStreet" layoutX="150.0" layoutY="22.0" />
+                                    <TextField fx:id="setriskAdressZIP" layoutX="150.0" layoutY="52.0" />
+                                    <TextField fx:id="setriskAdressCompanion" layoutX="150.0" layoutY="124.0" />
+                                    <TextField fx:id="setriskAdressExpert" layoutX="150.0" layoutY="155.0" />
+                                    <TextField fx:id="setriskAdressNr" layoutX="150.0" layoutY="188.0" />
+                                    <TextField fx:id="setriskAdressDuration" layoutX="150.0" layoutY="251.0" prefHeight="27.0" prefWidth="63.0" />
+                                    <DatePicker fx:id="setriskAdressDate" layoutX="150.0" layoutY="219.0" prefHeight="27.0" prefWidth="167.0" />
+                                    <Button fx:id="setRiskAdressData" layoutX="101.0" layoutY="305.0" mnemonicParsing="false" onAction="#setRiskAdressData" text="Daten eintragen" />
+                                    <Button fx:id="closeRiskAddressButton" layoutX="268.0" layoutY="305.0" mnemonicParsing="false" onAction="#closeRiskAdressPane" text="X" />
+                                    <Label layoutX="231.0" layoutY="256.0" text="Stunden" />
                                  </children>
                               </Pane>
                            </children>
@@ -436,39 +437,40 @@
                                           <ComboBox editable="true" layoutX="471.0" layoutY="10.0" prefHeight="25.0" prefWidth="76.0" />
                                           <DatePicker layoutX="564.0" layoutY="10.0" prefHeight="25.0" prefWidth="97.0" />
                                           <TextField layoutX="675.0" layoutY="10.0" prefHeight="25.0" prefWidth="105.0" />
-                                          <Separator layoutX="35.0" layoutY="49.0" prefHeight="0.0" prefWidth="720.0" />
-                                          <Label layoutX="12.0" layoutY="76.0" text="2" />
-                                          <TextField layoutX="41.0" layoutY="72.0" prefHeight="25.0" prefWidth="39.0" />
-                                          <ComboBox editable="true" layoutX="101.0" layoutY="72.0" prefHeight="25.0" prefWidth="263.0" />
-                                          <ComboBox editable="true" layoutX="378.0" layoutY="72.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <ComboBox editable="true" layoutX="471.0" layoutY="72.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <DatePicker layoutX="564.0" layoutY="72.0" prefHeight="25.0" prefWidth="97.0" />
-                                          <TextField layoutX="675.0" layoutY="72.0" prefHeight="25.0" prefWidth="105.0" />
-                                          <Separator layoutX="33.0" layoutY="111.0" prefHeight="0.0" prefWidth="720.0" />
-                                          <Label layoutX="12.0" layoutY="137.0" text="3" />
-                                          <TextField layoutX="41.0" layoutY="133.0" prefHeight="25.0" prefWidth="39.0" />
-                                          <ComboBox editable="true" layoutX="101.0" layoutY="133.0" prefHeight="25.0" prefWidth="263.0" />
-                                          <ComboBox editable="true" layoutX="378.0" layoutY="133.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <ComboBox editable="true" layoutX="471.0" layoutY="133.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <DatePicker layoutX="564.0" layoutY="133.0" prefHeight="25.0" prefWidth="97.0" />
-                                          <TextField layoutX="675.0" layoutY="133.0" prefHeight="25.0" prefWidth="105.0" />
-                                          <Separator layoutX="33.0" layoutY="172.0" prefHeight="0.0" prefWidth="720.0" />
-                                          <Label layoutX="12.0" layoutY="201.0" text="4" />
-                                          <TextField layoutX="41.0" layoutY="197.0" prefHeight="25.0" prefWidth="39.0" />
-                                          <ComboBox editable="true" layoutX="101.0" layoutY="197.0" prefHeight="25.0" prefWidth="263.0" />
-                                          <ComboBox editable="true" layoutX="378.0" layoutY="197.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <ComboBox editable="true" layoutX="471.0" layoutY="197.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <DatePicker layoutX="564.0" layoutY="197.0" prefHeight="25.0" prefWidth="97.0" />
-                                          <TextField layoutX="675.0" layoutY="197.0" prefHeight="25.0" prefWidth="105.0" />
-                                          <Separator layoutX="33.0" layoutY="236.0" prefHeight="0.0" prefWidth="720.0" />
-                                          <Label layoutX="12.0" layoutY="264.0" text="5" />
-                                          <TextField layoutX="41.0" layoutY="260.0" prefHeight="25.0" prefWidth="39.0" />
-                                          <ComboBox editable="true" layoutX="101.0" layoutY="260.0" prefHeight="25.0" prefWidth="263.0" />
-                                          <ComboBox editable="true" layoutX="378.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <ComboBox editable="true" layoutX="471.0" layoutY="260.0" prefHeight="25.0" prefWidth="76.0" />
-                                          <DatePicker layoutX="564.0" layoutY="260.0" prefHeight="25.0" prefWidth="97.0" />
-                                          <TextField layoutX="675.0" layoutY="260.0" prefHeight="25.0" prefWidth="105.0" />
-                                          <Separator layoutX="33.0" layoutY="299.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Separator layoutX="40.0" layoutY="116.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="11.0" layoutY="193.0" text="2" />
+                                          <TextField layoutX="40.0" layoutY="189.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="100.0" layoutY="189.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="377.0" layoutY="189.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="470.0" layoutY="189.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="563.0" layoutY="189.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="674.0" layoutY="189.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="32.0" layoutY="228.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="11.0" layoutY="254.0" text="3" />
+                                          <TextField layoutX="40.0" layoutY="250.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="100.0" layoutY="250.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="377.0" layoutY="250.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="470.0" layoutY="250.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="563.0" layoutY="250.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="674.0" layoutY="250.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="32.0" layoutY="289.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="11.0" layoutY="318.0" text="4" />
+                                          <TextField layoutX="40.0" layoutY="314.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="100.0" layoutY="314.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="377.0" layoutY="314.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="470.0" layoutY="314.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="563.0" layoutY="314.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="674.0" layoutY="314.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="32.0" layoutY="353.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <Label layoutX="11.0" layoutY="381.0" text="5" />
+                                          <TextField layoutX="40.0" layoutY="377.0" prefHeight="25.0" prefWidth="39.0" />
+                                          <ComboBox editable="true" layoutX="100.0" layoutY="377.0" prefHeight="25.0" prefWidth="263.0" />
+                                          <ComboBox editable="true" layoutX="377.0" layoutY="377.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <ComboBox editable="true" layoutX="470.0" layoutY="377.0" prefHeight="25.0" prefWidth="76.0" />
+                                          <DatePicker layoutX="563.0" layoutY="377.0" prefHeight="25.0" prefWidth="97.0" />
+                                          <TextField layoutX="674.0" layoutY="377.0" prefHeight="25.0" prefWidth="105.0" />
+                                          <Separator layoutX="32.0" layoutY="416.0" prefHeight="0.0" prefWidth="720.0" />
+                                          <TextArea layoutX="101.0" layoutY="50.0" prefHeight="55.0" prefWidth="262.0" promptText="Weitere Erläuterungen zum Mangel" wrapText="true" />
                                        </children></AnchorPane>
                                  </content>
                               </ScrollPane>

@@ -3,6 +3,7 @@ package GUI;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 
 import javafx.fxml.FXML;
@@ -806,17 +807,34 @@ public class GUIController {
 //			e.printStackTrace();
 //		}
 		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
+		String date =  riskAdressDate.getText();
+		LocalDate localDate = LocalDate.now();
+		try {
+			localDate = LocalDate.parse(date, formatter);
+		} catch (DateTimeParseException de) {}	
+		
+		setriskAdressStreet.setText(riskAdressStreet.getText());
+		setriskAdressZIP.setText(riskAdressZIP.getText());
+		setriskAdressCompanion.setText(riskAdressCompanion.getText());
+		setriskAdressExpert.setText(riskAdressExpert.getText());	
+		setriskAdressNr.setText(riskAdressNr.getText());
+		setriskAdressDate.setValue(localDate);
+		setriskAdressDuration.setText(riskAdressDuration.getText());
+		
 		newRiskAdressPane.setVisible(true);
+		
 		
 	}
 	
 	public void setRiskAdressData() {
+		
 		riskAdressStreet.setText(setriskAdressStreet.getText());
 		riskAdressZIP.setText(setriskAdressZIP.getText());
 		riskAdressCompanion.setText(setriskAdressCompanion.getText());
 		riskAdressExpert.setText(setriskAdressExpert.getText());
 		riskAdressNr.setText(setriskAdressNr.getText());
-		riskAdressDate.setText(setriskAdressDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+		riskAdressDate.setText(setriskAdressDate.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy")));
 		riskAdressDuration.setText(setriskAdressDuration.getText());
 		
 		newRiskAdressPane.setVisible(false);
@@ -989,7 +1007,7 @@ public class GUIController {
 	public String getevaluationResultsFaultsDate() {
 		String result = "";
 		if(evaluationResultsFaultsDate.getValue() != null) {
-			result = evaluationResultsFaultsDate.getValue().format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+			result = evaluationResultsFaultsDate.getValue().format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
 		}
 		else {
 			//Fehler behandeln!!

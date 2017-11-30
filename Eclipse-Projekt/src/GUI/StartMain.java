@@ -30,6 +30,7 @@ public class StartMain extends Application{
 			Scene scene = new Scene(box);
 			//scene.getStylesheets().add(this.getClass().getResource("startWindow.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setResizable(false);
 			primaryStage.show();
 			
 		} catch (IOException e) {

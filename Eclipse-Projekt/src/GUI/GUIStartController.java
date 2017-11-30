@@ -25,6 +25,7 @@ public class GUIStartController {
 			Scene scene = new Scene(root1);
 			scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
 			stage.setScene(scene);
+			stage.setResizable(false);
 			stage.show();
 		} catch (IOException e) {
 			System.out.println("GUI could not be loaded");

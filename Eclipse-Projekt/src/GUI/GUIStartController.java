@@ -2,11 +2,14 @@ package GUI;
 
 import java.io.IOException;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
@@ -23,7 +26,7 @@ public class GUIStartController {
 			stage.setTitle("Neuen Befundschein anlegen");
 			stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
 			Scene scene = new Scene(root1);
-			scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
+			//scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
 			stage.setScene(scene);
 			stage.setResizable(false);
 			stage.show();
@@ -32,4 +35,5 @@ public class GUIStartController {
 			e.printStackTrace();
 		}
 	}
+	
 }

@@ -6,25 +6,43 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.Separator;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class GUIController {
+	
+	
+	/*
+	 * 
+	 * MenuItems
+	 *
+	 *
+	 */
+	
+	@FXML
+	private MenuBar menuBar;
+	@FXML
+	private MenuItem newFaultBill;
+	@FXML
+	private MenuItem openFaultBill;
+	@FXML
+	private MenuItem saveFaultBill;
+	@FXML
+	private MenuItem saveAsPdf;
+	@FXML
+	private MenuItem closeFaultBillWindow;
+	
+	
+	
 
 	/*
 	 * 
@@ -55,6 +73,8 @@ public class GUIController {
 	private CheckBox typeOfBusinessProtectiveActionNo;
 	@FXML
 	private TextField typeOfBusinessProtectiveActionYesText;
+	@FXML
+	private Label typeOfBusinessProtectiveActionYesTextLabel;
 	@FXML
 	private CheckBox typeOfBusinessAllZonesCheckedYes;
 	@FXML
@@ -249,6 +269,47 @@ public class GUIController {
 	
 	@FXML
 	private Button newRow;
+	@FXML
+	private ComboBox danger1;
+	@FXML
+	private ComboBox danger2;
+	@FXML
+	private ComboBox danger3;
+	@FXML
+	private ComboBox danger4;
+	@FXML
+	private ComboBox danger5;
+	@FXML
+	private TextArea building1;
+	@FXML
+	private TextArea building2;
+	@FXML
+	private TextArea building3;
+	@FXML
+	private TextArea building4;
+	@FXML
+	private TextArea building5;
+	@FXML
+	private ComboBox fault1;
+	@FXML
+	private ComboBox fault2;
+	@FXML
+	private ComboBox fault3;
+	@FXML
+	private ComboBox fault4;
+	@FXML
+	private ComboBox fault5;
+	@FXML
+	private ComboBox area1;
+	@FXML
+	private ComboBox area2;
+	@FXML
+	private ComboBox area3;
+	@FXML
+	private ComboBox area4;
+	@FXML
+	private ComboBox area5;
+	
 	
 
 	/////////////// ///////////
@@ -262,11 +323,69 @@ public class GUIController {
 	 *
 	 */
 
-	public boolean checkIfNumeric(String string) {
-		boolean result = false;
-
-		return result;
+	/*
+	 * Menü-Methoden 
+	 *
+	 */
+	
+	/*
+	 * Menü-Item Neuen Befundschein anlegen
+	 */
+	public void newFaultBill() {
+		try {
+			FXMLLoader loader = new FXMLLoader(StartMain.class.getResource("BillWindow.fxml"));
+			Parent root1 = (Parent) loader.load();
+			Stage stage = new Stage();
+			stage.setTitle("Neuen Befundschein anlegen");
+			stage.getIcons().add(new Image(getClass().getResourceAsStream("icon.png")));
+			Scene scene = new Scene(root1);
+			//scene.getStylesheets().add(this.getClass().getResource("billWindow.css").toExternalForm());
+			stage.setScene(scene);
+			stage.setResizable(false);
+			stage.show();
+		} catch (IOException e) {
+			System.out.println("GUI could not be loaded");
+			e.printStackTrace();
+		}
 	}
+	
+	
+	/*
+	 * Menü-Item Befundschein öffnen
+	 */
+	public void openFaultBill() {
+		
+	}
+	
+	
+	/*
+	 * Menü-Item Befundschein speichern
+	 */
+	public void saveFaultBill() {
+		
+	}
+	
+	
+	/*
+	 * Menü-Item Befundschein als PDF exportieren
+	 */
+	public void saveAsPdf() {
+		
+	}
+	
+	
+	/*
+	 * Menü-Item Fenster schließen
+	 */
+	public void closeFaultBillWindow() {
+		
+		//Ungespeicherte Änderungen überprüfen!!!
+
+		Stage closeScene = (Stage) addRiskAdressButton.getScene().getWindow();
+		closeScene.close();
+	}
+	
+	
 	
 	/*
 	 * Alle Getter von Seite 1 Teil 1 zusammenfassen
@@ -332,6 +451,26 @@ public class GUIController {
 	 */
 	
 	public void saveEntireBill() {
+		
+	}
+	
+	
+	
+	//Wird beim Laden des Fensters ausgeführt
+	//Initialisiert die ersten 5 Reiehen von Anhang A
+	public void initialize() {
+
+			danger1.getItems().addAll(dangers);
+			danger2.getItems().addAll(dangers);
+			danger3.getItems().addAll(dangers);
+			danger4.getItems().addAll(dangers);
+			danger5.getItems().addAll(dangers);
+			
+			danger1.setVisibleRowCount(3);
+			danger2.setVisibleRowCount(3);
+			danger3.setVisibleRowCount(3);
+			danger4.setVisibleRowCount(3);
+			danger5.setVisibleRowCount(3);
 		
 	}
 	
@@ -539,10 +678,14 @@ public class GUIController {
 	 */
 	public void typeOfBusinessProtectiveActionYesClicked() {
 		typeOfBusinessProtectiveActionNo.setSelected(false);
+		typeOfBusinessProtectiveActionYesTextLabel.setVisible(true);
+		typeOfBusinessProtectiveActionYesText.setVisible(true);
 	}
 
 	public void typeOfBusinessProtectiveActionNoClicked() {
 		typeOfBusinessProtectiveActionYes.setSelected(false);
+		typeOfBusinessProtectiveActionYesTextLabel.setVisible(false);
+		typeOfBusinessProtectiveActionYesText.setVisible(false);
 	}
 	
 	
@@ -843,6 +986,32 @@ public class GUIController {
 	
 	public void closeRiskAdressPane() {
 		newRiskAdressPane.setVisible(false);
+	}
+	
+	
+	
+	public String getriskAdressStreet() {
+		String result = "";
+		result = riskAdressStreet.getText();
+		return result;
+	}
+	
+	public String getriskAdressZIP() {
+		String result = "";
+		result = riskAdressZIP.getText();
+		return result;
+	}
+	
+	public String getriskAdressCompanion() {
+		String result = "";
+		result = riskAdressCompanion.getText();
+		return result;
+	}
+	
+	public String getriskAdressExpert() {
+		String result = "";
+		result = riskAdressExpert.getText();
+		return result;
 	}
 	
 	
@@ -1805,6 +1974,7 @@ public class GUIController {
 	 *
 	 */
 	
+	
 	@FXML
 	private AnchorPane appendixAnchorPane;
 	@FXML
@@ -1812,8 +1982,16 @@ public class GUIController {
 	@FXML
 	private ScrollPane scrollPane;
 	
-	private int y_margin = 264;
-	private int margin_separator = y_margin + 35;
+	//Abstand zur vorherigen Reihe
+	private int y_margin = 365;
+	private int margin_separator = y_margin + 75;
+	
+	//Liste an Einträgen für die Gefahren-ComboBox
+	ObservableList<String> dangers = FXCollections.observableArrayList(
+		        "O",
+		        "X",
+		        "O, X"
+		    );
 	
 	
 	/* 
@@ -1823,73 +2001,580 @@ public class GUIController {
 	 */
 	
 	public void addNewRow() {
-		int elementNr= 5;
-		elementNr++;
-		runningNumberAppendix++;
-		y_margin = y_margin + 63;
-		margin_separator = margin_separator + 63;
+		int elementNr= 5; 
+		elementNr++; //Dient dem Vergeben einer individuellen ID an jedes Element der Reihe, damit man mit Gettern und Settern drauf zugreifen kann
+		runningNumberAppendix++; //Ab dieser laufenden Nummer wird bei den durch den Button hinzugefügten Reihen weitergezählt
+		y_margin = y_margin + 90; //Jede Reihe wird um diese Zahl auf der Y-Achse zur vorherigen Reihe versetzt
+		margin_separator = margin_separator + 90;  
+		
 		String run_nr = Integer.toString(runningNumberAppendix);
 		String elementNumber = Integer.toString(elementNr);
 		
 		Pane pane = new Pane();
 		Label runningNumber = new Label(run_nr);
-		TextField danger = new TextField();
-		ComboBox building =  new ComboBox();
+		ComboBox danger = new ComboBox();
+		TextArea building =  new TextArea();
 		ComboBox fault = new ComboBox();
 		ComboBox area = new ComboBox();
-		DatePicker date = new DatePicker();
-		TextField responsible = new TextField();
 		Separator separator = new Separator();
 
 		String dangerID = "danger" + elementNumber;
 		String buildingID = "building" + elementNumber;
 		String faultID = "fault" + elementNumber;
 		String areaID = "area" + elementNumber;
-		String dateID = "date" + elementNumber;
-		String responsibleID = "responsible" + elementNumber;
+		
+		danger.getItems().addAll(dangers);
 		
 		danger.setId(dangerID);
 		building.setId(buildingID);
 		fault.setId(faultID);
 		area.setId(areaID);
-		date.setId(dateID);
-		responsible.setId(responsibleID);
-		
 		danger.setEditable(true);
 		building.setEditable(true);
 		fault.setEditable(true);
 		area.setEditable(true);
-		date.setEditable(true);
-		responsible.setEditable(true);
+
 		
-		danger.setPrefWidth(39.0);
-		building.setPrefWidth(263.0);
-		fault.setPrefWidth(76.0);
-		area.setPrefWidth(76.0);
-		date.setPrefWidth(97.0);
-		responsible.setPrefWidth(105.0);
+		danger.setPrefWidth(70.0);
+		building.setPrefWidth(340.0);
+		building.setPrefHeight(62.0);
+		fault.setPrefWidth(85.0);
+		area.setPrefWidth(85.0);
 		separator.setPrefWidth(720);
 		
-		runningNumber.setLayoutX(14);
+		runningNumber.setLayoutX(12);
 		runningNumber.setLayoutY(y_margin);
 		danger.setLayoutX(41);
 		danger.setLayoutY(y_margin);
-		building.setLayoutX(101);
+		building.setLayoutX(145);
 		building.setLayoutY(y_margin);
-		fault.setLayoutX(378);
+		fault.setLayoutX(515);
 		fault.setLayoutY(y_margin);
-		area.setLayoutX(471);
+		area.setLayoutX(634);
 		area.setLayoutY(y_margin);
-		date.setLayoutX(564);
-		date.setLayoutY(y_margin);
-		responsible.setLayoutX(675);
-		responsible.setLayoutY(y_margin);
-		separator.setLayoutX(33);
+		separator.setLayoutX(32);
 		separator.setLayoutY(margin_separator);
 		
-		//pane.getChildren().addAll(runningNumber, danger, building, fault, area, date, responsible, separator);
-		//AnchorPane.setTopAnchor(pane, 5.0);
-		appendixAnchorPane.getChildren().addAll(runningNumber, danger, building, fault, area, date, responsible, separator);
+		appendixAnchorPane.getChildren().addAll(runningNumber, danger, building, fault, area, separator);
 		scrollPane.setContent(appendixAnchorPane);
+	}
+	
+	
+	//Getter und Setter für die ersten 5 Reihen der Mängelliste
+	//Zuerst alle Getter für alle Reihen, dann alle Setter
+	
+	/* Getter für Gefahr Reihe 1
+	 * 1=O
+	 * 2=X
+	 * 3=X,O
+	 * returns int
+	 */
+	public int getDangerRowOne() {
+		int result = 0;
+		String selection = "";
+		selection = danger1.getSelectionModel().getSelectedItem().toString();
+		
+		if(selection == "O") {
+			result = 1;
+		} else if (selection == "X") {
+			result = 2;
+		} else if (selection == "O, X") {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/* 
+	 * Getter für Gebäude, Anlage, Raum Reihe 1
+	 * returns String
+	 */
+	public String getBuildingRowOne() {
+		String result = "";
+		result = building1.getText();
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Mangel Reihe 1
+	 * returns int
+	 */
+	public int getFaultRowOne() {
+		int result = 0;
+		String selection = "";
+		selection = fault1.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Branche Reihe 1
+	 * returns int
+	 */
+	public int getAreaRowOne() {
+		int result = 0;
+		String selection = "";
+		selection = area2.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/* Getter für Gefahr Reihe 2
+	 * 1=O
+	 * 2=X
+	 * 3=X,O
+	 * returns int
+	 */
+	public int getDangerRowTwo() {
+		int result = 0;
+		String selection = "";
+		selection = danger2.getSelectionModel().getSelectedItem().toString();
+		
+		if(selection == "O") {
+			result = 1;
+		} else if (selection == "X") {
+			result = 2;
+		} else if (selection == "O, X") {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/* 
+	 * Getter für Gebäude, Anlage, Raum Reihe 2
+	 * returns String
+	 */
+	public String getBuildingRowTwo() {
+		String result = "";
+		result = building2.getText();
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Mangel Reihe 2
+	 * returns int
+	 */
+	public int getFaultRowTwo() {
+		int result = 0;
+		String selection = "";
+		selection = fault2.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Branche Reihe 2
+	 * returns int
+	 */
+	public int getAreaRowTwo() {
+		int result = 0;
+		String selection = "";
+		selection = area2.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/* Getter für Gefahr Reihe 3
+	 * 1=O
+	 * 2=X
+	 * 3=X,O
+	 * returns int
+	 */
+	public int getDangerRowThree() {
+		int result = 0;
+		String selection = "";
+		selection = danger3.getSelectionModel().getSelectedItem().toString();
+		
+		if(selection == "O") {
+			result = 1;
+		} else if (selection == "X") {
+			result = 2;
+		} else if (selection == "O, X") {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/* 
+	 * Getter für Gebäude, Anlage, Raum Reihe 3
+	 * returns String
+	 */
+	public String getBuildingRowThree() {
+		String result = "";
+		result = building3.getText();
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Mangel Reihe 3
+	 * returns int
+	 */
+	public int getFaultRowThree() {
+		int result = 0;
+		String selection = "";
+		selection = fault3.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Branche Reihe 3
+	 * returns int
+	 */
+	public int getAreaRowThree() {
+		int result = 0;
+		String selection = "";
+		selection = area3.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/* Getter für Gefahr Reihe 4
+	 * 1=O
+	 * 2=X
+	 * 3=X,O
+	 * returns int
+	 */
+	public int getDangerRowFour() {
+		int result = 0;
+		String selection = "";
+		selection = danger4.getSelectionModel().getSelectedItem().toString();
+		
+		if(selection == "O") {
+			result = 1;
+		} else if (selection == "X") {
+			result = 2;
+		} else if (selection == "O, X") {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/* 
+	 * Getter für Gebäude, Anlage, Raum Reihe 4
+	 * returns String
+	 */
+	public String getBuildingRowFour() {
+		String result = "";
+		result = building4.getText();
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Mangel Reihe 4
+	 * returns int
+	 */
+	public int getFaultRowFour() {
+		int result = 0;
+		String selection = "";
+		selection = fault4.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Branche Reihe 4
+	 * returns int
+	 */
+	public int getAreaRowFour() {
+		int result = 0;
+		String selection = "";
+		selection = area4.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/* Getter für Gefahr Reihe 5
+	 * 1=O
+	 * 2=X
+	 * 3=X,O
+	 * returns int
+	 */
+	public int getDangerRowFive() {
+		int result = 0;
+		String selection = "";
+		selection = danger5.getSelectionModel().getSelectedItem().toString();
+		
+		if(selection == "O") {
+			result = 1;
+		} else if (selection == "X") {
+			result = 2;
+		} else if (selection == "O, X") {
+			result = 3;
+		} else {
+			//Fehler behandeln!!
+		}
+		return result;
+	}
+	
+	
+	/* 
+	 * Getter für Gebäude, Anlage, Raum Reihe 5
+	 * returns String
+	 */
+	public String getBuildingRowFive() {
+		String result = "";
+		result = building5.getText();
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Mangel Reihe 5
+	 * returns int
+	 */
+	public int getFaultRowFive() {
+		int result = 0;
+		String selection = "";
+		selection = fault5.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Getter für Branche Reihe 5
+	 * returns int
+	 */
+	public int getAreaRowFive() {
+		int result = 0;
+		String selection = "";
+		selection = area5.getSelectionModel().getSelectedItem().toString();
+		result = Integer.parseInt(selection);
+		
+		return result;
+	}
+	
+	
+	/*
+	 * Setter für Gefahr Reihe 1
+	 */
+	public void setDangerRowOne(int result) {
+		if(result == 1) {
+			danger1.getSelectionModel().select(1);
+		} else if (result == 2) {
+			danger1.getSelectionModel().select(2);
+		} else if (result == 3) {
+			danger1.getSelectionModel().select(3);
+		}
+	}
+	
+	
+	/*
+	 * Setter für Gebäude, Anlage, Raum Reihe 1
+	 */
+	public void setBuildingRowOne(String result) {
+		building1.setText(result);
+	}
+	
+	
+	/*
+	 * Setter für Mangel Reihe 1
+	 */
+	public void setFaultRowOne(int result) {
+		String text = String.valueOf(result);
+		fault1.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Bereich Reihe 1
+	 */
+	public void setAreaRowOne(int result) {
+		String text = String.valueOf(result);
+		area1.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Gefahr Reihe 2
+	 */
+	public void setDangerRowTwo(int result) {
+		if(result == 1) {
+			danger2.getSelectionModel().select(1);
+		} else if (result == 2) {
+			danger2.getSelectionModel().select(2);
+		} else if (result == 3) {
+			danger2.getSelectionModel().select(3);
+		}
+	}
+	
+	
+	/*
+	 * Setter für Gebäude, Anlage, Raum Reihe 2
+	 */
+	public void setBuildingRowTwo(String result) {
+		building2.setText(result);
+	}
+	
+	
+	/*
+	 * Setter für Mangel Reihe 2
+	 */
+	public void setFaultRowTwo(int result) {
+		String text = String.valueOf(result);
+		fault2.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Bereich Reihe 2
+	 */
+	public void setAreaRowTwo(int result) {
+		String text = String.valueOf(result);
+		area2.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Gefahr Reihe 3
+	 */
+	public void setDangerRowThree(int result) {
+		if(result == 1) {
+			danger3.getSelectionModel().select(1);
+		} else if (result == 2) {
+			danger3.getSelectionModel().select(2);
+		} else if (result == 3) {
+			danger3.getSelectionModel().select(3);
+		}
+	}
+	
+	
+	/*
+	 * Setter für Gebäude, Anlage, Raum Reihe 3
+	 */
+	public void setBuildingRowThree(String result) {
+		building3.setText(result);
+	}
+	
+	
+	/*
+	 * Setter für Mangel 3
+	 */
+	public void setFaultRowThree(int result) {
+		String text = String.valueOf(result);
+		fault3.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Bereich Reihe 3
+	 */
+	public void setAreaRowThree(int result) {
+		String text = String.valueOf(result);
+		area3.setValue(text);
+	}
+	
+	
+	
+	/*
+	 * Setter für Gefahr Reihe 4
+	 */
+	public void setDangerRowFour(int result) {
+		if(result == 1) {
+			danger4.getSelectionModel().select(1);
+		} else if (result == 2) {
+			danger4.getSelectionModel().select(2);
+		} else if (result == 3) {
+			danger4.getSelectionModel().select(3);
+		}
+	}
+	
+	
+	/*
+	 * Setter für Gebäude, Anlage, Raum Reihe 4
+	 */
+	public void setBuildingRowFour(String result) {
+		building4.setText(result);
+	}
+	
+	
+	/*
+	 * Setter für Mangel Reihe 4
+	 */
+	public void setFaultRowFour(int result) {
+		String text = String.valueOf(result);
+		fault4.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Bereich Reihe 4
+	 */
+	public void setAreaRowFour(int result) {
+		String text = String.valueOf(result);
+		area4.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Gefahr Reihe 5
+	 */
+	public void setDangerRowFive(int result) {
+		if(result == 1) {
+			danger5.getSelectionModel().select(1);
+		} else if (result == 2) {
+			danger5.getSelectionModel().select(2);
+		} else if (result == 3) {
+			danger5.getSelectionModel().select(3);
+		}
+	}
+	
+	
+	/*
+	 * Setter für Gebäude, Anlage, Raum Reihe 5
+	 */
+	public void setBuildingRowFive(String result) {
+		building5.setText(result);
+	}
+	
+	
+	/*
+	 * Setter für Mangel Reihe 5
+	 */
+	public void setFaultRowFive(int result) {
+		String text = String.valueOf(result);
+		fault5.setValue(text);
+	}
+	
+	
+	/*
+	 * Setter für Bereich Reihe 5
+	 */
+	public void setAreaRowFive(int result) {
+		String text = String.valueOf(result);
+		area5.setValue(text);
 	}
 }

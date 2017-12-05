@@ -457,7 +457,7 @@ public class GUIController {
 	
 	
 	//Wird beim Laden des Fensters ausgeführt
-	//Initialisiert die ersten 5 Reiehen von Anhang A
+	//Initialisiert die ersten 5 Reihen von Anhang A
 	public void initialize() {
 
 			danger1.getItems().addAll(dangers);
